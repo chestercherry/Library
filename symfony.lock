@@ -337,9 +337,6 @@
             "./.env"
         ]
     },
-    "symfony/form": {
-        "version": "v4.4.41"
-    },
     "symfony/framework-bundle": {
         "version": "4.4",
         "recipe": {
@@ -420,9 +417,6 @@
             "./config/packages/prod/monolog.yaml",
             "./config/packages/test/monolog.yaml"
         ]
-    },
-    "symfony/options-resolver": {
-        "version": "v4.4.37"
     },
     "symfony/phpunit-bridge": {
         "version": "6.0",
