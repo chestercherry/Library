@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
+
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
+
+    <div class="example-wrapper">
+        {% include 'author/form.html.twig' %}
+        <h1>Authors</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for author in authors %}
+                <tr>
+                    <th scope="row">{{ author.id }}</th>
+                    <td>{{ author.firstName }}</td>
+                    <td>{{ author.lastName }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

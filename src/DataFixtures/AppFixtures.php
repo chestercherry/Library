@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Author;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Generator;
@@ -27,6 +28,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $this->loadBooks($manager);
+        $this->loadAuthors($manager);
     }
 
     /**
@@ -37,6 +39,21 @@ class AppFixtures extends Fixture
     {
         for ($i = 0; $i < self::OBJECT_COUNT; $i++) {
 
+        }
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function loadAuthors(ObjectManager $manager): void
+    {
+        for ($i = 0; $i < self::OBJECT_COUNT; $i++) {
+            $author = new Author();
+            $author->setFirstName($this->faker->firstName);
+            $author->setLastName($this->faker->lastName);
+            $manager->persist($author);
+            $manager->flush();
         }
     }
 }
